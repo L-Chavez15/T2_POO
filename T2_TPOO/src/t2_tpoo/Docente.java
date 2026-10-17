@@ -225,8 +225,69 @@ public abstract class Docente
         return pension;
     }
 
-    public void setPension(Pension pension) {
-        this.pension = pension;
+    public boolean setPension(Pension pension) 
+    {
+        if (pension != null)
+        {
+            if (pension.getTipoSistema() != null)
+            {
+                if (pension.getTipoSistema().equalsIgnoreCase("ONP"))
+                {
+                    this.pension = pension;
+                    return true;
+                }
+                else
+                {
+                    if (pension.getTipoSistema().equalsIgnoreCase("AFP"))
+                    {
+                        if (pension.getEmpresaAFP() != null)
+                        {
+                            if (pension.getEmpresaAFP().equalsIgnoreCase("Prima"))
+                            {
+                                this.pension = pension;
+                                return true;
+                            }
+                            else
+                            {
+                                if (pension.getEmpresaAFP().equalsIgnoreCase("Habitat"))
+                                {
+                                    this.pension = pension;
+                                    return true;
+                                }
+                                else
+                                {
+                                    if (pension.getEmpresaAFP().equalsIgnoreCase("Integra"))
+                                    {
+                                        this.pension = pension;
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        return false;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public ArrayList<Asistencias> getAsistencias() {
@@ -237,11 +298,6 @@ public abstract class Docente
     {
         this.asistencias.add(ReAsistencias);
     }
-    
-    
-
-    
-    
     
     
     public abstract void verDatos();

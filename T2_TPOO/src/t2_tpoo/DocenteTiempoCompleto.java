@@ -13,6 +13,7 @@ public class DocenteTiempoCompleto extends Docente
     private double sueldo_fijo;
     private double descuentos;
 
+
     public double getSueldo_fijo() {
         return sueldo_fijo;
     }
@@ -29,16 +30,57 @@ public class DocenteTiempoCompleto extends Docente
         this.descuentos = descuentos;
     }
     
-     public double calcular_sueldo()
+    public int contarInasistencias()
     {
-        if (this.descuentos > this.sueldo_fijo) {
-            throw new IllegalArgumentException(
-                "Los descuentos superan el sueldo fijo"
-            );
+        int contador = 0;
+
+        for (Asistencias a : asistencias)
+        {
+            if (a.getEstado() != null)
+        {
+            if (a.getEstado().equalsIgnoreCase("Falto"))
+            {
+                contador++;
+            }
+        }
         }
 
-        double sueldo;
-        sueldo = this.sueldo_fijo - (this.sueldo_fijo*0.05);
+        return contador;
+    }
+
+    public int contarTardanzas()
+    {
+        int contador = 0;
+
+        for (Asistencias a : asistencias)
+        {
+             if (a.getEstado() != null)
+        {
+            if (a.getEstado().equalsIgnoreCase("Tardanza"))
+            {
+                contador++;
+            }
+        }
+        }
+
+        return contador;
+    }
+    
+     public double calcular_sueldo()
+    {
+        double descuentoPension = sueldo_fijo * 0.05;
+        double descuentoInasistencias = contarInasistencias() * 50;
+        double descuentoTardanzas = contarTardanzas() * 10;
+
+        descuentos =descuentoPension- descuentoInasistencias- descuentoTardanzas;
+        
+        double sueldo = sueldo_fijo-descuentos;
+
+        if (sueldo < 0)
+        {
+            sueldo = 0;
+        }
+
         return sueldo;
     }
 
@@ -52,9 +94,13 @@ public class DocenteTiempoCompleto extends Docente
         System.out.println("TELEFONO: "+this.Telefono);
         System.out.println("FECHA INGRESO: " + this.fecha_ingreso);
         System.out.println("DEPARTAMENTO: " + this.departmaneto);
-        System.out.println("AFILIACION: " + this.pension);
+        if (this.pension != null)
+        {
+            this.pension.verDatos();
+        }
         System.out.println("SUELDO FIJO: " + this.sueldo_fijo);
-        System.out.println("DESCUENTOS: " + this.descuentos);
+        System.out.println("INASISTENCIAS: " + contarInasistencias());
+        System.out.println("TARDANZAS: " + contarTardanzas());
         System.out.println("SUELDO: " + calcular_sueldo());
     }
     

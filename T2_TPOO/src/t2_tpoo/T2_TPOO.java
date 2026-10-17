@@ -66,9 +66,6 @@ public class T2_TPOO {
                         System.out.print("Sueldo fijo: ");
                         p.setSueldo_fijo(Double.parseDouble(sc.nextLine()));
 
-                        System.out.print("Descuentos ya calculados: ");
-                        p.setDescuentos(Double.parseDouble(sc.nextLine()));
-
                         c.agregar(p);
 
                         System.out.println("Profesor registrado.");
@@ -97,6 +94,7 @@ public class T2_TPOO {
                         break;
                     case 5:
                         ca.listar();
+                        break;
 
                     case 0:
                         System.out.println("Fin del programa.");
@@ -165,23 +163,35 @@ public class T2_TPOO {
             System.out.print("TELEFONO: ");
             aux = d.setTelefono(sc.nextLine());
         }
+        aux =false;
+        while (!aux)
+        {
+            System.out.print("Ingrese sistema de pensiones (ONP / AFP): ");
+            String tipo = sc.nextLine();
+
+            if (tipo.equalsIgnoreCase("ONP")) {
+                Pension pension = new Pension("ONP", "");
+                d.setPension(pension);
+                aux = true;
+            } 
+            else if (tipo.equalsIgnoreCase("AFP")) {
+                System.out.print("Ingrese la empresa AFP (Prima / Habitat / Integra ): ");
+                String empresa = sc.nextLine();
+
+                Pension pension = new Pension("AFP", empresa);
+                d.setPension(pension);
+                aux = true;
+            } 
+            else {
+                System.out.println("-> Opción no válida. Debe ingresar ONP o AFP.");
+            }
+        }
+        
         System.out.print("Fecha de ingreso (AAAA-MM-DD): ");
         d.setFecha_ingreso(LocalDate.parse(sc.nextLine()));
-       
-        /*
-        while (!aux)
-        {
-            System.out.print("Departamento: ");
-            d.setDepartamento(sc.nextLine());
-        }
-        aux=false;
         
-        while (!aux)
-        {
-            System.out.print("Afiliacion (ONP / AFP Prima / AFP Habitat / AFP Integra): ");
-            d.setAfiliacion(sc.nextLine());
-        }
-        aux=false;*/
+        
+       
     }
     public static void registrarAsistencia(Scanner sc, Docente d, ControladorAsitencias ca)
     {
@@ -199,10 +209,12 @@ public class T2_TPOO {
             System.out.print("Estado (Asistio, Falto, Tardanza): ");
             aux = a.setEstado(sc.nextLine());
         }
-
+        
+        d.setAsistencias(a);
         ca.agregar(a);
 
         System.out.println("Asistencia registrada correctamente.");
     }
+    
     
 }

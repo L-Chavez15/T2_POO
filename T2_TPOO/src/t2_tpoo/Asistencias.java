@@ -54,7 +54,7 @@ public class Asistencias
                     return true;
                 } else {
                     if (estado.equalsIgnoreCase("Falto")) {
-                        System.out.println("ESTADO REGISTRADO: FALTÓ");
+                        System.out.println("ESTADO REGISTRADO: FALTO");
                         this.estado = estado;
                         return true;
                     } else {
