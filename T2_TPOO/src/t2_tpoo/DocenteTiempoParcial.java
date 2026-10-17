@@ -32,9 +32,19 @@ public class DocenteTiempoParcial extends Docente //Usamos EXTENDS para hacer he
     
     public double Calcular_remuneracion()
     {
-        double remuneracion;
-        remuneracion = this.Horas_dictadas * this.tarifa;
-        return remuneracion;
+        double remuneracion = this.Horas_dictadas * this.tarifa;
+
+        double descuentoPension = remuneracion * 0.05;
+
+        // Restamos el descuento de pension.
+        double sueldo = remuneracion - descuentoPension;
+
+        if (sueldo < 0)
+        {
+            sueldo = 0;
+        }
+
+        return sueldo;
     }
 
     @Override//usamos polimorfismos
@@ -61,7 +71,7 @@ public class DocenteTiempoParcial extends Docente //Usamos EXTENDS para hacer he
         }
         System.out.println("HORAS DICTADAS: " + this.Horas_dictadas);
         System.out.println("TARIFA POR HORA: " + this.tarifa);
-        System.out.println("REMUNERACION: " + this.Calcular_remuneracion());
+        System.out.println("SUELDO: " + this.Calcular_remuneracion()+ " SOLES");
     }
 
     

@@ -112,7 +112,7 @@ public class DocenteTiempoCompleto extends Docente
         System.out.println("SUELDO FIJO: " + this.sueldo_fijo);
         System.out.println("INASISTENCIAS: " + contarInasistencias());
         System.out.println("TARDANZAS: " + contarTardanzas());
-        System.out.println("SUELDO: " + calcular_sueldo());
+        System.out.println("SUELDO: " + calcular_sueldo()+ " SOLES");
     }
     
 }

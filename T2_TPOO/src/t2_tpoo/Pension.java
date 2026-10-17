@@ -51,6 +51,6 @@ public class Pension
         {
             System.out.println("Empresa AFP: " + empresaAFP);
         }
-        System.out.println("Descuento: 5% del sueldo");
+        System.out.println("Descuento por pension: 5% del sueldo");
     }
 }
