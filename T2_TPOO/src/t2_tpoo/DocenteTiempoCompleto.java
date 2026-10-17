@@ -72,7 +72,7 @@ public class DocenteTiempoCompleto extends Docente
         double descuentoInasistencias = contarInasistencias() * 50;
         double descuentoTardanzas = contarTardanzas() * 10;
 
-        descuentos =descuentoPension- descuentoInasistencias- descuentoTardanzas;
+        descuentos =descuentoPension+ descuentoInasistencias+ descuentoTardanzas;
         
         double sueldo = sueldo_fijo-descuentos;
 
