@@ -14,7 +14,6 @@ public class DocenteTiempoParcial extends Docente //Usamos EXTENDS para hacer he
     private double tarifa;
     
     //Si el padre tiene constructores, el hijo necesita contructores
-
     public double getHoras_dictadas() {
         return Horas_dictadas;
     }
@@ -47,8 +46,19 @@ public class DocenteTiempoParcial extends Docente //Usamos EXTENDS para hacer he
         System.out.println("DIRECCION: "+this.Direccion);
         System.out.println("TELEFONO: "+this.Telefono);
         System.out.println("FECHA INGRESO: " + this.fecha_ingreso);
-        System.out.println("DEPARTAMENTO: " + this.departmaneto);
-        System.out.println("AFILIACION: " + this.pension);
+        if (this.departamento != null)
+        {
+            this.departamento.verDatos();
+        }
+        else
+        {
+            System.out.println("DEPARTAMENTO: NO REGISTRADO");
+        }
+        // Mostramos los datos de la pensión.
+        if (this.pension != null)
+        {
+            this.pension.verDatos();
+        }
         System.out.println("HORAS DICTADAS: " + this.Horas_dictadas);
         System.out.println("TARIFA POR HORA: " + this.tarifa);
         System.out.println("REMUNERACION: " + this.Calcular_remuneracion());

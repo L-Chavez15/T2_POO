@@ -47,7 +47,8 @@ public class Pension
     public void verDatos() {
         System.out.println("Sistema de Pension: " + tipoSistema);
         
-        if (tipoSistema != null && tipoSistema.equalsIgnoreCase("AFP")) {
+        if (tipoSistema != null && tipoSistema.equalsIgnoreCase("AFP")) 
+        {
             System.out.println("Empresa AFP: " + empresaAFP);
         }
         System.out.println("Descuento: 5% del sueldo");

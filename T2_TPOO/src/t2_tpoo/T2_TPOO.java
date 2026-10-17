@@ -26,12 +26,13 @@ public class T2_TPOO {
 
         while (opcion != 0)
         {
-            System.out.println("\nSISTEMA DE DOCENTES - GLOBAL TEC");
+            System.out.println("\n::::::SISTEMA DE DOCENTES - GLOBAL TEC::::::");
             System.out.println("1. Registrar profesor a tiempo parcial");
             System.out.println("2. Registrar profesor a tiempo completo");
             System.out.println("3. Listar docentes");
             System.out.println("4. Registrar Asistencia");
             System.out.println("5. Lista de asistencias");
+            System.out.println("6. Lista de Docentes");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opcion: ");
 
@@ -94,6 +95,21 @@ public class T2_TPOO {
                         break;
                     case 5:
                         ca.listar();
+                        break;
+                    case 6:
+                        System.out.print("Ingrese el numero de documento del docente: ");
+                        String nrodoc = sc.nextLine();
+
+                        Docente d = c.buscar(nrodoc);
+
+                        if (d != null)
+                        {
+                            d.verHistorialPersonal();
+                        }
+                        else
+                        {
+                            System.out.println("Docente no encontrado.");
+                        }
                         break;
 
                     case 0:
@@ -169,29 +185,60 @@ public class T2_TPOO {
             System.out.print("Ingrese sistema de pensiones (ONP / AFP): ");
             String tipo = sc.nextLine();
 
-            if (tipo.equalsIgnoreCase("ONP")) {
+            if (tipo.equalsIgnoreCase("ONP"))
+            {
                 Pension pension = new Pension("ONP", "");
-                d.setPension(pension);
-                aux = true;
-            } 
-            else if (tipo.equalsIgnoreCase("AFP")) {
-                System.out.print("Ingrese la empresa AFP (Prima / Habitat / Integra ): ");
+                // Verificasmos si la pensión es válida.
+                aux = d.setPension(pension);
+                if (!aux)
+                {
+                    System.out.println("Pension no valida.");
+                }
+            }
+            else if (tipo.equalsIgnoreCase("AFP"))
+            {
+                System.out.print("Ingrese la empresa AFP (Prima / Habitat / Integra): ");
                 String empresa = sc.nextLine();
-
                 Pension pension = new Pension("AFP", empresa);
-                d.setPension(pension);
-                aux = true;
-            } 
-            else {
-                System.out.println("-> Opción no válida. Debe ingresar ONP o AFP.");
+                // Solo continuamos si Docente acepta la pensión.
+                aux = d.setPension(pension);
+                if (!aux)
+                {
+                    System.out.println("Empresa AFP no valida.");
+                }
+            }
+            else
+            {
+                System.out.println("Opcion no valida. Debe ingresar ONP o AFP.");
             }
         }
+        
+        Departamento dep = new Departamento();
+        aux = false;
+        while (!aux)
+        {
+            System.out.print("Codigo del departamento: ");
+            aux = dep.setCodigo(sc.nextLine());
+        }
+
+        aux = false;
+        while (!aux)
+        {
+            System.out.print("Nombre del departamento: ");
+            aux = dep.setNombre(sc.nextLine());
+        }
+
+        aux = false;
+        while (!aux)
+        {
+            System.out.print("Tipo de departamento (Independiente / Jerarquia): ");
+            aux = dep.setTipoDepartamento(sc.nextLine());
+        }
+        d.setDepartmamento(dep);
         
         System.out.print("Fecha de ingreso (AAAA-MM-DD): ");
         d.setFecha_ingreso(LocalDate.parse(sc.nextLine()));
         
-        
-       
     }
     public static void registrarAsistencia(Scanner sc, Docente d, ControladorAsitencias ca)
     {
@@ -216,5 +263,7 @@ public class T2_TPOO {
         System.out.println("Asistencia registrada correctamente.");
     }
     
+    
+
     
 }

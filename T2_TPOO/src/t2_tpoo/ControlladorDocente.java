@@ -18,7 +18,8 @@ public class ControlladorDocente
     {
         lista_docentes.add(docente_nuevo);
     }
-    public Docente buscar(String nrodoc) {
+    public Docente buscar(String nrodoc) 
+    {
         for (Docente d : lista_docentes) {
             if (d.getNro_documento().equals(nrodoc)) {
                 return d;

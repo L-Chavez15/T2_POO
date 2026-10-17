@@ -22,7 +22,7 @@ public abstract class Docente
     protected String Telefono;
     protected LocalDate fecha_ingreso;
     
-    protected Departamento departmaneto;
+    protected Departamento departamento;
     protected Pension pension;
     protected ArrayList<Asistencias> asistencias = new ArrayList<>();
 
@@ -190,35 +190,55 @@ public abstract class Docente
 
     public boolean setTelefono(String Telefono) 
     {
-        if(Telefono.length()==9)
+        // Primero comprobamos que el teléfono no sea nulo.
+        if (Telefono != null)
         {
-            this.Telefono = Telefono;
-            return true;
+            // El teléfono debe tener 9 caracteres.
+            if (Telefono.length() == 9)
+            {
+                this.Telefono = Telefono;
+                return true;
+            }
+            else
+            {
+                System.out.println("ERROR: EL TELEFONO DEBE TENER 9 DIGITOS");
+                return false;
+            }
         }
-        else 
+        else
         {
-            System.out.println("ERRO: ES OBLIGATORIO INGRESAR EL TELEFONO");
+            System.out.println("ERROR: ES OBLIGATORIO INGRESAR EL TELEFONO");
             return false;
         }
     }
 
-    public LocalDate getFecha_ingreso() {
+    public LocalDate getFecha_ingreso() 
+    {
         return fecha_ingreso;
     }
 
-    public void setFecha_ingreso(LocalDate fecha_ingreso) {
+    public void setFecha_ingreso(LocalDate fecha_ingreso) 
+    {
         this.fecha_ingreso = fecha_ingreso;
     }
     
     
-    
-
     public Departamento getDepartmaneto() {
-        return departmaneto;
+        return departamento;
     }
 
-    public void setDepartmaneto(Departamento departmaneto) {
-        this.departmaneto = departmaneto;
+    public boolean setDepartmamento(Departamento departamento) 
+    {
+        if (departamento != null)
+        {
+            this.departamento = departamento;
+            return true;
+        }
+        else
+        {
+            System.out.println("ERROR: EL DEPARTAMENTO NO PUEDE ESTAR VACIO");
+            return false;
+        }
     }
 
     public Pension getPension() {
@@ -299,6 +319,24 @@ public abstract class Docente
         this.asistencias.add(ReAsistencias);
     }
     
+    public void verHistorialPersonal()
+    {
+        System.out.println("");
+        System.out.println("===== HISTORIAL DE PERSONAL =====");
+        System.out.println("Nombre: " + this.Nombre + " " + this.Apellido_pa + " " + this.Apellido_ma);
+        System.out.println("Numero de documento: " + this.Nro_documento);
+        System.out.println("Fecha de ingreso: " + this.fecha_ingreso);
+
+        if (this.departamento != null)
+        {
+            System.out.println("Departamento actual:");
+            System.out.println(this.departamento.getCodigo()+" - "+this.departamento.getNombre());
+        }
+        else
+        {
+            System.out.println("Departamento actual: No registrado");
+        }
+    }
     
     public abstract void verDatos();
 }
