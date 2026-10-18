@@ -45,6 +45,7 @@ public class T2_TPOO {
                     case 1:
                     {
                         DocenteTiempoParcial p =new DocenteTiempoParcial();
+                        //aplicamos upcasting
                         ingresarDatos(sc, p);
                         System.out.print("Horas dictadas: ");
                         p.setHoras_dictadas(Double.parseDouble(sc.nextLine()));
@@ -65,7 +66,7 @@ public class T2_TPOO {
                     case 2:
                     {
                         DocenteTiempoCompleto p = new DocenteTiempoCompleto();
-
+                        
                         ingresarDatos(sc, p);
                         
                         boolean aux =false;
@@ -137,6 +138,7 @@ public class T2_TPOO {
         sc.close();
     }
 
+   //upcasting: El parámetro del método está declarado como Docente
     public static void ingresarDatos(Scanner sc, Docente d)
     {
         Boolean aux = false;
