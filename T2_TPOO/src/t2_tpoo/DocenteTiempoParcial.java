@@ -26,8 +26,19 @@ public class DocenteTiempoParcial extends Docente //Usamos EXTENDS para hacer he
         return tarifa;
     }
 
-    public void setTarifa(double tarifa) {
-        this.tarifa = tarifa;
+    public boolean setTarifa(double tarifa) 
+    {
+        if (tarifa >0) 
+        {
+            this.tarifa=tarifa;
+            return true;
+        }
+        else
+        {
+            System.out.println("ERROR: INGRESE DATOS VALIDOS");
+            return false;
+        }
+        
     }
     
     public double Calcular_remuneracion()

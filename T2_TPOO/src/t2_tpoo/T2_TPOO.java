@@ -49,8 +49,12 @@ public class T2_TPOO {
                         System.out.print("Horas dictadas: ");
                         p.setHoras_dictadas(Double.parseDouble(sc.nextLine()));
 
-                        System.out.print("Tarifa por hora: ");
-                        p.setTarifa(Double.parseDouble(sc.nextLine()));
+                        boolean aux =false;
+                        while(!aux)
+                        {
+                            System.out.print("Tarifa por hora: ");
+                            aux=p.setTarifa(Double.parseDouble(sc.nextLine()));
+                        }
 
                         c.agregar(p);
 
@@ -63,10 +67,14 @@ public class T2_TPOO {
                         DocenteTiempoCompleto p = new DocenteTiempoCompleto();
 
                         ingresarDatos(sc, p);
-
-                        System.out.print("Sueldo fijo: ");
-                        p.setSueldo_fijo(Double.parseDouble(sc.nextLine()));
-
+                        
+                        boolean aux =false;
+                        while(!aux)
+                        {
+                            System.out.print("Sueldo fijo: ");
+                            aux= p.setSueldo_fijo(Double.parseDouble(sc.nextLine()));
+                        }
+                        
                         c.agregar(p);
 
                         System.out.println("Profesor registrado.");

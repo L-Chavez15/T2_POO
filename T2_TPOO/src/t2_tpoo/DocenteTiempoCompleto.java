@@ -18,8 +18,19 @@ public class DocenteTiempoCompleto extends Docente
         return sueldo_fijo;
     }
 
-    public void setSueldo_fijo(double sueldo_fijo) {
-        this.sueldo_fijo = sueldo_fijo;
+    public boolean setSueldo_fijo(double sueldo_fijo) 
+    {
+        if (sueldo_fijo>0)
+        {
+            this.sueldo_fijo=sueldo_fijo;
+            return true;
+        }
+        else
+        {
+            System.out.println("ERROR: INGRESE DATOS VALIDOS");
+            return false;
+        }
+        
     }
 
     public double getDescuentos() {
