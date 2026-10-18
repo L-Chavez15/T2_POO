@@ -68,7 +68,7 @@ public class DocenteTiempoCompleto extends Docente
     
      public double calcular_sueldo()
     {
-        double descuentoPension = sueldo_fijo * 0.05;
+        double descuentoPension = sueldo_fijo * 0.02;
         double descuentoInasistencias = contarInasistencias() * 50;
         double descuentoTardanzas = contarTardanzas() * 10;
 

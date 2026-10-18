@@ -34,7 +34,7 @@ public class DocenteTiempoParcial extends Docente //Usamos EXTENDS para hacer he
     {
         double remuneracion = this.Horas_dictadas * this.tarifa;
 
-        double descuentoPension = remuneracion * 0.05;
+        double descuentoPension = remuneracion * 0.02;
 
         // Restamos el descuento de pension.
         double sueldo = remuneracion - descuentoPension;

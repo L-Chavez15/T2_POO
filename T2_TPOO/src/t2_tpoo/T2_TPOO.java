@@ -32,7 +32,7 @@ public class T2_TPOO {
             System.out.println("3. Listar docentes");
             System.out.println("4. Registrar Asistencia");
             System.out.println("5. Lista de asistencias");
-            System.out.println("6. Lista de Docentes");
+            System.out.println("6. Informacion del Docentes");
             System.out.println("0. Salir");
             System.out.print("Seleccione una opcion: ");
 

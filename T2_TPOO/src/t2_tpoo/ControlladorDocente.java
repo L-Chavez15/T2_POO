@@ -21,7 +21,8 @@ public class ControlladorDocente
     public Docente buscar(String nrodoc) 
     {
         for (Docente d : lista_docentes) {
-            if (d.getNro_documento().equals(nrodoc)) {
+            if (d.getNro_documento().equals(nrodoc)) 
+            {
                 return d;
             }
         }
@@ -36,19 +37,6 @@ public class ControlladorDocente
         {
             d.verDatos();
 
-            if (d instanceof DocenteTiempoParcial)
-            {
-                DocenteTiempoParcial p;
-                p = (DocenteTiempoParcial) d;
-
-                System.out.println("Calculo parcial: " + p.Calcular_remuneracion());
-            }
-            else if (d instanceof DocenteTiempoCompleto)
-            {
-                DocenteTiempoCompleto p;
-                p = (DocenteTiempoCompleto) d;
-                p.calcular_sueldo();
-            }
             System.out.println("----------------------------------");
         }
     }

@@ -66,12 +66,12 @@ public abstract class Docente
     {
         if(Nro_documento != null)
         {
-            if(Nro_documento.length()==8)
+            if(Nro_documento.matches("[0-9]{8}"))
             {
                 this.Nro_documento = Nro_documento;
                 return true;
             }
-            else if(Nro_documento.length()==11)
+            else if(Nro_documento.matches("[0-9]{11}"))
             {
                 this.Nro_documento = Nro_documento;
                 return true;
@@ -194,7 +194,8 @@ public abstract class Docente
         if (Telefono != null)
         {
             // El teléfono debe tener 9 caracteres.
-            if (Telefono.length() == 9)
+            //.matches es para que solo valide números
+            if (Telefono.matches("[0-9]{9}"))
             {
                 this.Telefono = Telefono;
                 return true;
@@ -247,67 +248,26 @@ public abstract class Docente
 
     public boolean setPension(Pension pension) 
     {
-        if (pension != null)
+        if (pension ==null || pension.getTipoSistema()==null) 
         {
-            if (pension.getTipoSistema() != null)
+         return false;   
+        }
+        String sistema = pension.getTipoSistema();
+        if (sistema.equalsIgnoreCase("ONP")) 
+        {
+            this.pension=pension;
+            return true;
+        }
+        if (sistema.equalsIgnoreCase("AFP")) 
+        {
+           String empresa=pension.getEmpresaAFP();
+            if (empresa.equalsIgnoreCase("INTEGRA")|| empresa.equalsIgnoreCase("PRIMA")||empresa.equalsIgnoreCase("HABITAT")) 
             {
-                if (pension.getTipoSistema().equalsIgnoreCase("ONP"))
-                {
-                    this.pension = pension;
-                    return true;
-                }
-                else
-                {
-                    if (pension.getTipoSistema().equalsIgnoreCase("AFP"))
-                    {
-                        if (pension.getEmpresaAFP() != null)
-                        {
-                            if (pension.getEmpresaAFP().equalsIgnoreCase("Prima"))
-                            {
-                                this.pension = pension;
-                                return true;
-                            }
-                            else
-                            {
-                                if (pension.getEmpresaAFP().equalsIgnoreCase("Habitat"))
-                                {
-                                    this.pension = pension;
-                                    return true;
-                                }
-                                else
-                                {
-                                    if (pension.getEmpresaAFP().equalsIgnoreCase("Integra"))
-                                    {
-                                        this.pension = pension;
-                                        return true;
-                                    }
-                                    else
-                                    {
-                                        return false;
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-            else
-            {
-                return false;
+                this.pension=pension;
+                return true;
             }
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
     public ArrayList<Asistencias> getAsistencias() {

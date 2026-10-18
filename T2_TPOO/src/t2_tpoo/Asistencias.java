@@ -92,7 +92,7 @@ public class Asistencias
         System.out.println("Estado del Docente: " + estado);
         if(this.profe != null)
         {
-            System.out.println("El docente es: "+this.profe.getNombre());
+            System.out.println("El docente es: "+this.profe.getNombre()+" "+this.profe.getApellido_pa()+" "+this.profe.getApellido_ma());
         }
         else
         {
