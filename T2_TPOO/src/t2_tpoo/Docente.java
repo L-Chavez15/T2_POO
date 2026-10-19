@@ -254,7 +254,7 @@ public abstract class Docente
     // Valida el sistema previsional y la empresa AFP cuando corresponde.
     public boolean setPension(Pension pension) 
     {
-        if (pension ==null || pension.getTipoSistema()==null) 
+        if (pension == null || pension.getTipoSistema()==null) 
         {
          return false;   
         }
@@ -267,6 +267,7 @@ public abstract class Docente
         if (sistema.equalsIgnoreCase("AFP")) 
         {
            String empresa=pension.getEmpresaAFP();
+           
             if (empresa.equalsIgnoreCase("INTEGRA")|| empresa.equalsIgnoreCase("PRIMA")||empresa.equalsIgnoreCase("HABITAT")) 
             {
                 this.pension=pension;

@@ -42,7 +42,6 @@ public class DocenteTiempoParcial extends Docente //Usamos EXTENDS para hacer he
             System.out.println("ERROR: INGRESE DATOS VALIDOS");
             return false;
         }
-        
     }
     
     // Calcula la remuneración según las horas, la tarifa y el descuento.

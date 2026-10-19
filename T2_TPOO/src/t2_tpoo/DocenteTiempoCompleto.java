@@ -33,7 +33,6 @@ public class DocenteTiempoCompleto extends Docente
             System.out.println("ERROR: INGRESE DATOS VALIDOS");
             return false;
         }
-        
     }
 
     public double getDescuentos() {
