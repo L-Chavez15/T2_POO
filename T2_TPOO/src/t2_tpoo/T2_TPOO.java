@@ -150,7 +150,7 @@ public class T2_TPOO {
     {
         Boolean aux = false;
 
-        while (!aux)
+        while (!aux)//true
         {
             System.out.print("Tipo de documento: ");
             aux = d.setTipo_documento(sc.nextLine());

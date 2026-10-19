@@ -41,40 +41,32 @@ public class Asistencias
     }
  
     // Valida que el estado sea Asistio, Falto o Tardanza.
-    public boolean setEstado(String estado) {
+    public boolean setEstado(String estado) 
+    {
         // Validamos que no sea nulo
-        if (estado != null) {
-            // Validamos que no esté vacío
-            if (estado.equals("")) {
-                System.out.println("Error: No se ingresó nada. El campo de estado está vacío.");
-                return false;
-            } else {
-                // Validamos opciones permitidas para la asistencia (Asistió, Faltó, Tardanza)
-                if (estado.equalsIgnoreCase("Asistio")) {
-                    System.out.println("ESTADO REGISTRADO: ASISTIÓ");
-                    this.estado = estado;
-                    return true;
-                } else {
-                    if (estado.equalsIgnoreCase("Falto")) {
-                        System.out.println("ESTADO REGISTRADO: FALTO");
-                        this.estado = estado;
-                        return true;
-                    } else {
-                        if (estado.equalsIgnoreCase("Tardanza")) {
-                            System.out.println("ESTADO REGISTRADO: TARDANZA");
-                            this.estado = estado;
-                            return true;
-                        } else {
-                            System.out.println("Error: Estado no válido. Ingrese Asistio, Falto o Tardanza.");
-                            return false;
-                        }
-                    }
-                }
-            }
-        } else {
+        if (estado == null) 
+        {
             System.out.println("Error: El valor no puede ser nulo.");
             return false;
         }
+        // Validamos que no esté vacío
+        if (estado.equals("")) {
+            System.out.println("Error: No se ingresó nada. El campo de estado está vacío.");
+            return false;
+        }
+        // Validamos opciones permitidas (Asistió, Faltó, Tardanza)
+        if (estado.equalsIgnoreCase("Asistio")) {
+            System.out.println("ESTADO REGISTRADO: ASISTIÓ");
+        } else if (estado.equalsIgnoreCase("Falto")) {
+            System.out.println("ESTADO REGISTRADO: FALTO");
+        } else if (estado.equalsIgnoreCase("Tardanza")) {
+            System.out.println("ESTADO REGISTRADO: TARDANZA");
+        } else {
+            System.out.println("Error: Estado no válido. Ingrese Asistio, Falto o Tardanza.");
+            return false;
+        }
+        this.estado = estado;
+        return true;
     }
 
     // Permiten consultar y modificar el docente asociado a la asistencia.
