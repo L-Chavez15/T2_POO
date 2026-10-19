@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public abstract class Docente 
 {
+    // Atributos protegidos para compartir datos con las clases hijas.
     protected String tipo_documento;
     protected String Nro_documento;
     protected String Nombre;
@@ -22,15 +23,17 @@ public abstract class Docente
     protected String Telefono;
     protected LocalDate fecha_ingreso;
     
+    // Objetos y colección relacionados con la información del docente.
     protected Departamento departamento;
     protected Pension pension;
-    protected ArrayList<Asistencias> asistencias = new ArrayList<>();
+    protected ArrayList<Asistencias> asistencias = new ArrayList<>();//relacion entre docente y asitencia es de 1...n
 
     //COLOCAMOS LOS GETTES AND SETTERS
     public String getTipo_documento() {
         return tipo_documento;
     }
-
+    
+    // Valida que el tipo de documento sea DNI o CE.
     public boolean setTipo_documento(String tipo_documento) 
     {
         if(tipo_documento != null)
@@ -62,6 +65,7 @@ public abstract class Docente
         return Nro_documento;
     }
 
+    // Comprueba que el documento tenga 8 u 11 dígitos numéricos.
     public boolean setNro_documento(String Nro_documento) 
     {
         if(Nro_documento != null)
@@ -188,6 +192,7 @@ public abstract class Docente
         return Telefono;
     }
 
+    // Valida que el teléfono contenga exactamente 9 dígitos.
     public boolean setTelefono(String Telefono) 
     {
         // Primero comprobamos que el teléfono no sea nulo.
@@ -246,6 +251,7 @@ public abstract class Docente
         return pension;
     }
 
+    // Valida el sistema previsional y la empresa AFP cuando corresponde.
     public boolean setPension(Pension pension) 
     {
         if (pension ==null || pension.getTipoSistema()==null) 
@@ -274,11 +280,13 @@ public abstract class Docente
         return asistencias;
     }
 
+    // Agrega una asistencia al historial del docente.
     public void setAsistencias(Asistencias ReAsistencias) 
     {
         this.asistencias.add(ReAsistencias);
     }
     
+    // Muestra los datos personales y el departamento del docente.
     public void verHistorialPersonal()
     {
         System.out.println("");
@@ -298,5 +306,6 @@ public abstract class Docente
         }
     }
     
+    // Obliga a las clases hijas a implementar la visualización de datos.
     public abstract void verDatos();
 }

@@ -8,8 +8,10 @@ package t2_tpoo;
  *
  * @author leoch
  */
+// Representa el departamento al que pertenece un docente.
 public class Departamento 
 {
+    // Almacena el código, nombre y tipo de departamento.
     private String codigo;
     private String nombre;
     private String tipoDepartamento;
@@ -18,7 +20,7 @@ public class Departamento
     {
     }
     
-
+    // Valida que el dato obligatorio no sea nulo.
     public String getCodigo()
     {
         return codigo;
@@ -95,6 +97,7 @@ public class Departamento
         }
     }
 
+    // Muestra la información registrada del departamento.
     public void verDatos()
     {
         System.out.println("CODIGO DEL DEPARTAMENTO: " + this.codigo);

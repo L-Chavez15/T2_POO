@@ -8,8 +8,11 @@ package t2_tpoo;
  *
  * @author leoch
  */
+
+// Clase hija que representa a los docentes contratados por horas.
 public class DocenteTiempoParcial extends Docente //Usamos EXTENDS para hacer herencia
 {
+    // Horas dictadas y tarifa utilizada para calcular la remuneración.
     private double Horas_dictadas;
     private double tarifa;
     
@@ -26,6 +29,7 @@ public class DocenteTiempoParcial extends Docente //Usamos EXTENDS para hacer he
         return tarifa;
     }
 
+    // Valida que la tarifa por hora sea mayor que cero.
     public boolean setTarifa(double tarifa) 
     {
         if (tarifa >0) 
@@ -41,6 +45,7 @@ public class DocenteTiempoParcial extends Docente //Usamos EXTENDS para hacer he
         
     }
     
+    // Calcula la remuneración según las horas, la tarifa y el descuento.
     public double Calcular_remuneracion()
     {
         double remuneracion = this.Horas_dictadas * this.tarifa;
@@ -58,6 +63,7 @@ public class DocenteTiempoParcial extends Docente //Usamos EXTENDS para hacer he
         return sueldo;
     }
 
+    // Sobrescribe el método de la clase padre para mostrar datos específicos.
     @Override//usamos polimorfismos
     public void verDatos() 
     {

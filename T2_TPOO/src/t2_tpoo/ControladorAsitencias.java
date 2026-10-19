@@ -10,15 +10,19 @@ import java.util.ArrayList;
  *
  * @author leoch
  */
+// Administra el registro, la búsqueda y el listado de docentes.
 public class ControladorAsitencias 
 {
+    // Administra los registros de asistencia.
     ArrayList<Asistencias> lista_asistencias = new ArrayList();
 
+    // Agrega una nueva asistencia a la colección.
     public void agregar(Asistencias asistencia_nueva)
     {
         lista_asistencias.add(asistencia_nueva);
     }
 
+    // Recorre la colección y muestra cada registro de asistencia.
     public void listar()
     {
         System.out.println("::::::::LISTA DE ASISTENCIAS::::::::");

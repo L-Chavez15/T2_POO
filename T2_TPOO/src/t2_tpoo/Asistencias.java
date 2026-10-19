@@ -10,14 +10,16 @@ import java.time.LocalDate;
  *
  * @author leoch
  */
+// Representa el registro de asistencia de un docente.
 public class Asistencias 
 {
-    // Atributos según tu diagrama UML
+    // Almacena la fecha, el estado y el docente asociado.
     private LocalDate fecha;
     private String estado;
     private Docente profe;
  
  
+    // Almacena la fecha, el estado y el docente asociado.
     // Constructor con parámetros
     public Asistencias(LocalDate fecha, String estado, Docente profe) {
         this.fecha = fecha;
@@ -38,7 +40,7 @@ public class Asistencias
         return estado;
     }
  
-    // Método set con validación estricta y básica (igual que tus otros setters)
+    // Valida que el estado sea Asistio, Falto o Tardanza.
     public boolean setEstado(String estado) {
         // Validamos que no sea nulo
         if (estado != null) {
@@ -75,6 +77,7 @@ public class Asistencias
         }
     }
 
+    // Permiten consultar y modificar el docente asociado a la asistencia.
     public Docente getProfe() {
         return profe;
     }
@@ -84,7 +87,7 @@ public class Asistencias
     }
     
  
-    // Método verDatos requerido en el UML
+    // Muestra la fecha, el estado y los datos del docente asociado.
     public void verDatos() 
     {
         

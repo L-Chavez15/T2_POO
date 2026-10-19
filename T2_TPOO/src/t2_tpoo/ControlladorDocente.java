@@ -14,11 +14,15 @@ public class ControlladorDocente
 {
     ArrayList<Docente> lista_docentes = new ArrayList();
 
+    // Incorpora un docente a la colección.
     public void agregar(Docente docente_nuevo)
     {
         //la lista referencia a Docente, puede recibir objetos de cualqiera de sus clases
         lista_docentes.add(docente_nuevo);
     }
+    
+    // Busca un docente por su número de documento.
+    // Devuelve null si no encuentra coincidencias.
     public Docente buscar(String nrodoc) 
     {
         for (Docente d : lista_docentes) {
@@ -30,6 +34,7 @@ public class ControlladorDocente
         return null;
     }
     
+    // Recorre los docentes y muestra sus datos mediante polimorfismo.
     public void listar()
     {
         System.out.println("::::::::LISTA DE DOCENTES::::::::");
@@ -38,6 +43,7 @@ public class ControlladorDocente
         {
             d.verDatos();
             
+            // Comprueba el tipo real del objeto antes de realizar downcasting.
             //DOWNCASTING
             //convertimos una referencia de tipo Docente a una referencia de una de sus clases hijas
  

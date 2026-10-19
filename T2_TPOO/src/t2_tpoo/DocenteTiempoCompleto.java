@@ -8,8 +8,10 @@ package t2_tpoo;
  *
  * @author leoch
  */
+// Clase hija que representa a los docentes con sueldo fijo.
 public class DocenteTiempoCompleto extends Docente
 {
+    // Almacena el sueldo fijo y el total de descuentos calculados.
     private double sueldo_fijo;
     private double descuentos;
 
@@ -18,6 +20,7 @@ public class DocenteTiempoCompleto extends Docente
         return sueldo_fijo;
     }
 
+    // Valida que el sueldo fijo sea mayor que cero.
     public boolean setSueldo_fijo(double sueldo_fijo) 
     {
         if (sueldo_fijo>0)
@@ -41,6 +44,7 @@ public class DocenteTiempoCompleto extends Docente
         this.descuentos = descuentos;
     }
     
+    // Cuenta las asistencias registradas con estado Falto.
     public int contarInasistencias()
     {
         int contador = 0;
@@ -59,6 +63,7 @@ public class DocenteTiempoCompleto extends Docente
         return contador;
     }
 
+    // Cuenta las asistencias registradas con estado Tardanza.
     public int contarTardanzas()
     {
         int contador = 0;
@@ -77,6 +82,7 @@ public class DocenteTiempoCompleto extends Docente
         return contador;
     }
     
+    // Calcula el sueldo restando los descuentos por pensión, inasistencias y tardanzas.
      public double calcular_sueldo()
     {
         double descuentoPension = sueldo_fijo * 0.02;
@@ -96,6 +102,7 @@ public class DocenteTiempoCompleto extends Docente
         return sueldo;
     }
 
+    //Muestra los datos del docente y su información salarial.
     @Override
     public void verDatos() 
     {

@@ -8,8 +8,10 @@ package t2_tpoo;
  *
  * @author leoch
  */
+// Representa el sistema previsional del docente.
 public class Pension 
 {
+    // Almacena el sistema de pensiones y la empresa AFP, si corresponde.
     private String tipoSistema;//ONP o AFP
     private String empresaAFP;
     
@@ -38,12 +40,13 @@ public class Pension
         this.empresaAFP = empresaAFP;
     }
     
-    //Calcular el descuento
+    // Calcula el descuento aplicando el porcentaje definido en el método.
     public double calcularDescuento(double sueldo)
     {
-        return sueldo*0.05;//Aplicamos descuento general del 5%
+        return sueldo*0.02;//Aplicamos descuento general del 2%
     }
     
+    // Muestra el sistema previsional y la empresa AFP cuando corresponde.
     public void verDatos() {
         System.out.println("Sistema de Pension: " + tipoSistema);
         

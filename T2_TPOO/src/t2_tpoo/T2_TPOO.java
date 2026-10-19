@@ -18,12 +18,14 @@ public class T2_TPOO {
      */
    public static void main(String[] args)
     {
+        // Inicializa los controladores que administran docentes y asistencias.
         Scanner sc = new Scanner(System.in);
         ControlladorDocente c = new ControlladorDocente();
         ControladorAsitencias ca = new ControladorAsitencias();
 
         int opcion = -1;
 
+        // Mantiene el menú activo hasta que el usuario seleccione salir.
         while (opcion != 0)
         {
             System.out.println("\n::::::SISTEMA DE DOCENTES - GLOBAL TEC::::::");
@@ -36,14 +38,17 @@ public class T2_TPOO {
             System.out.println("0. Salir");
             System.out.print("Seleccione una opcion: ");
 
+            // Controla errores producidos durante el ingreso y procesamiento de datos.
             try
             {
                 opcion = Integer.parseInt(sc.nextLine());
 
+                // Ejecuta la operación seleccionada por el usuario.
                 switch (opcion)
                 {
                     case 1:
                     {
+                        // Ejecuta la operación seleccionada por el usuario.
                         DocenteTiempoParcial p =new DocenteTiempoParcial();
                         //aplicamos upcasting
                         ingresarDatos(sc, p);
@@ -65,8 +70,10 @@ public class T2_TPOO {
 
                     case 2:
                     {
+                        // Ejecuta la operación seleccionada por el usuario.
                         DocenteTiempoCompleto p = new DocenteTiempoCompleto();
                         
+                        // Solicita y valida los datos comunes de cualquier tipo de docente.
                         ingresarDatos(sc, p);
                         
                         boolean aux =false;
@@ -250,6 +257,7 @@ public class T2_TPOO {
         d.setFecha_ingreso(LocalDate.parse(sc.nextLine()));
         
     }
+    // Registra una asistencia y la relaciona con el docente correspondiente.
     public static void registrarAsistencia(Scanner sc, Docente d, ControladorAsitencias ca)
     {
         System.out.println("REGISTRO DE ASISTENCIA");
