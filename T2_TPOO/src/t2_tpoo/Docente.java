@@ -82,7 +82,7 @@ public abstract class Docente
             }
             else
             {
-                System.out.println("ERROR, CANTIDAD DE CARACTERES INVALIDA");
+                System.out.println("ERROR, CANTIDAD DE CARACTERES INVALIDA O DNI REPETIDO");
                 return false;
             }
         }

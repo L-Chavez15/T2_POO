@@ -51,7 +51,7 @@ public class T2_TPOO {
                         // Ejecuta la operación seleccionada por el usuario.
                         DocenteTiempoParcial p =new DocenteTiempoParcial();
                         //aplicamos upcasting
-                        ingresarDatos(sc, p);
+                        ingresarDatos(sc, p,c);
                         System.out.print("Horas dictadas: ");
                         p.setHoras_dictadas(Double.parseDouble(sc.nextLine()));
 
@@ -74,7 +74,7 @@ public class T2_TPOO {
                         DocenteTiempoCompleto p = new DocenteTiempoCompleto();
                         
                         // Solicita y valida los datos comunes de cualquier tipo de docente.
-                        ingresarDatos(sc, p);
+                        ingresarDatos(sc, p,c);
                         
                         boolean aux =false;
                         while(!aux)
@@ -146,7 +146,7 @@ public class T2_TPOO {
     }
 
    //upcasting: El parámetro del método está declarado como Docente
-    public static void ingresarDatos(Scanner sc, Docente d)
+    public static void ingresarDatos(Scanner sc, Docente d, ControlladorDocente c)
     {
         Boolean aux = false;
 
@@ -160,7 +160,16 @@ public class T2_TPOO {
         while (!aux)
         {
             System.out.print("Numero de documento: ");
-            aux = d.setNro_documento(sc.nextLine());
+            String nrodoc =sc.nextLine();
+            if (c.buscar(nrodoc) != null)
+            {
+                System.out.println("ERROR: EL NUMERO DE DOCUMENTO YA ESTA REGISTRADO.");
+            }
+            else
+            {
+                aux = d.setNro_documento(nrodoc);
+            }
+            
         }
         aux = false;
 
@@ -285,3 +294,4 @@ public class T2_TPOO {
 
     
 }
+    
